@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "norvara-motif-scan"
+version = "1.0.0rc3"
+description = "Find regulatory elements and sequence motifs by IUPAC, PROSITE or regular-expression pattern, with no third-party dependencies"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "PolyForm-Noncommercial-1.0.0"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Norvara Therapeutics", email = "research@norvaratx.com" },
+]
+maintainers = [
+    { name = "Norvara Therapeutics", email = "research@norvaratx.com" },
+]
+keywords = ["bioinformatics", "motif", "regulatory-element", "prosite", "iupac", "sequence-analysis"]
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/Norvara-Therapeutics/motif-scan"
+Repository = "https://github.com/Norvara-Therapeutics/motif-scan.git"
+Issues = "https://github.com/Norvara-Therapeutics/motif-scan/issues"
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "pyflakes>=3"]
+
+[project.scripts]
+motif-scan = "motif_scan.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# Every module is annotated, so say so: without this marker a consumer's type
+# checker treats the package as untyped and ignores the annotations.
+[tool.setuptools.package-data]
+motif_scan = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,15 @@
+# A motif file. The columns 'name' and 'pattern' are required; syntax,
+# alphabet, category, description and source are optional.
+#
+#   motif-scan scan -i examples/aav2.fasta --motifs-file examples/payload_motifs.tsv
+#
+# Every pattern here is either a published site written in full or a plain
+# structural pattern. Nothing is an abbreviated consensus: a pattern that is a
+# few bases short of the element it names finds nothing, and says nothing about
+# why.
+name	pattern	syntax	alphabet	category	description	source
+loxP	ATAACTTCGTATANNNNNNNNTATACGAAGTTAT	iupac	nucleotide	vector	loxP: two 13 bp inverted repeats flanking an 8 bp spacer, written with the spacer left open so that the spacer variants match too	Hoess et al. 1982, Proc Natl Acad Sci USA 79:3398
+start-context	RNNATGG	iupac	nucleotide	translation	a purine at -3 and G at +4 around an ATG	Kozak 1986, Cell 44:283
+polyA-run	A{8,}	regex	nucleotide	synthesis	a run of eight or more adenines, where polymerase slippage and synthesis both become unreliable	
+GC-run	[GC]{12,}	regex	nucleotide	synthesis	a stretch of twelve or more G or C, which raises the melting point of a synthesis block	
+dibasic-site	[KR]-[KR]	prosite	protein	protein-cleavage	a pair of basic residues, the minimal target of the proprotein convertases	Seidah and Chretien 1999, Brain Res 848:45
